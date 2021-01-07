@@ -6,10 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <label>Ngrok URL:</label>
-    <input type="text" placeholder="Ngrok url" id="url" />
-    <button onclick="getSomeData()">Test this API</button>
-    <h1 id="result"></h1>
+    <div style="align-items: center; align-content: center; text-align: center">
+      <h1>Chat Ops API Testing.</h1>
+
+      <label>Ngrok URL:</label>
+      <input type="text" placeholder="Ngrok url" id="url" />
+      <button onclick="getSomeData()">Test this API</button>
+      <h1 id="result"></h1>
+    </div>
   </body>
 
   <script>
@@ -22,10 +26,14 @@
         },
       })
         .then((response) => response.json())
-        .then((res) => (document.getElementById("result").innerHTML = "Passed"))
-        .catch(
-          (error) => (document.getElementById("result").innerHTML = "Error")
-        );
+        .then((res) => {
+          document.getElementById("result").innerHTML = "Passed";
+          document.getElementById("result").style.color = "green";
+        })
+        .catch((error) => {
+          document.getElementById("result").innerHTML = "Error";
+          document.getElementById("result").style.color = "red";
+        });
     }
   </script>
 </html>
